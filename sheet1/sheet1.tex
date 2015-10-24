@@ -34,13 +34,23 @@
     Device interface, which operates with tracks, cylinders, channels etc.
   \end{itemize}
   2. The following sequence matches the top-down architecture:\\
-  (E) $\Rightarrow$ (D) $\Rightarrow$ (B) $\Rightarrow$ (A) $\Rightarrow$ (C)\\\\
-  3. (a) Data independence contains two separate properties of the system: the system
-  should be able to manage data independent of top applications, and secondly,
-  system should be able to make data available for different application independently.\\
+  (E) $\Rightarrow$ (B) $\Rightarrow$ (D) $\Rightarrow$ (A) $\Rightarrow$ (C)\\\\
+  3. (a) Data independence means that application or some external representation of
+  the data is independent from internal storage.\\
+  It is not definitely given in the slides, but Data Independence contains
+  two parts: Logical Data Independence and Physical Data Independence. Logical Data
+  is a metadata and data about database itself, i.e. it describes how the actual
+  data stored and managed in the database. So Logical Data Indeendence is a kind of
+  mechanism, which acts independently from actual data stored on the disk. For example,
+  if we do some change on table format, it should not change the data on the disk.\\
+  Physical data independence is the mechanism which allows to change physical data
+  without impact the schema or some other logical data.\\
   (b) Data independence is an important feature because it is not feasible to store
   the same data for each application several times and to provide shared data to
-  several applications and to be sure, that data will be accessible.\\
-  (c)
+  several applications and to be sure, that data will be accessible and consistent.
+  More over, with data independence it is possible to use logical data structures
+  and descriptive queries.\\
+  (c) Data structures and smart modern interfaces hiding all low-level layers and working
+  with filesystems and block devices.
 
 \end{document}
