@@ -75,9 +75,9 @@
 WHERE
 i."InvoiceId" = iid AND c > 1 GROUP BY "CustomerId"
   \item
-    SELECT sum(i."Total"), sum(t."Bytes")
-    FROM "Playlist" p, "PlaylistTrack" pt, "InvoiceLine" il, "Invoice" i, "Track" t
-    WHERE p."Name" = 'Grunge' AND pt."PlaylistId" = p."PlaylistId" AND il."TrackId" = pt."TrackId" AND il."InvoiceId" = i."InvoiceId" AND t."TrackId" = pt."TrackId"
+    SELECT sum(il."UnitPrice"), sum(t."Bytes")
+    FROM "Playlist" p, "PlaylistTrack" pt, "InvoiceLine" il, "Track" t
+    WHERE p."Name" = 'Grunge' AND pt."PlaylistId" = p."PlaylistId" AND il."TrackId" = pt."TrackId" AND t."TrackId" = pt."TrackId"
   \item
     SELECT p."Name" FROM "Playlist" p
     WHERE p."PlaylistId" NOT IN (SELECT DISTINCT pt."PlaylistId" ptid FROM "Track" t, "Album" al, "Artist" ar, "PlaylistTrack" pt
