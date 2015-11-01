@@ -68,14 +68,12 @@
 	FROM "Employee" e1, "Employee" e2 
 	WHERE e2."EmployeeId" =  e1."ReportsTo" AND e1."HireDate" > e2."HireDate"
   \item
-    SELECT sum(i."Total")
-    FROM 
-    (SELECT cid, count(alid) num FROM 
-    (SELECT DISTINCT i."CustomerId" cid, al."ArtistId" alid FROM "Invoice" i, "InvoiceLine" il, "Track" t, "Album" al 
-    WHERE i."InvoiceId" = il."InvoiceId" AND il."TrackId" = t."TrackId" AND al."AlbumId" = t."AlbumId"
-    ORDER BY i."CustomerId") temp1
-    GROUP BY cid) temp2, "Invoice" i
-    WHERE i."CustomerId" = temp2.cid AND temp2.cid > 1 GROUP BY i."CustomerId"
+    SELECT sum("Total") FROM 
+	(SELECT iid, count(alid) c FROM (SELECT DISTINCT i."InvoiceId" iid, i."CustomerId" cid, al."ArtistId" alid FROM "InvoiceLine" il, "Invoice" i, "Track" t, "Album" al
+	WHERE i."InvoiceId" = il."InvoiceId" AND t."TrackId" = il."TrackId" AND al."AlbumId" = t."AlbumId" ORDER BY i."InvoiceId") temp1 GROUP BY iid) temp2,
+	"Invoice" i
+WHERE
+i."InvoiceId" = iid AND c > 1 GROUP BY "CustomerId"
   \item
     SELECT sum(i."Total"), sum(t."Bytes")
     FROM "Playlist" p, "PlaylistTrack" pt, "InvoiceLine" il, "Invoice" i, "Track" t
