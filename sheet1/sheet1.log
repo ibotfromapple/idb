@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2015.5.24)  24 OCT 2015 19:33
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2015.5.24)  2 NOV 2015 13:07
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -85,56 +85,145 @@ LaTeX Font Info:    Overwriting math alphabet `\mathfrak' in version `bold'
 (Font)                  U/euf/m/n --> U/euf/b/n on input line 106.
 ) (/usr/local/texlive/2015/texmf-dist/tex/latex/amsfonts/amssymb.sty
 Package: amssymb 2013/01/14 v3.01 AMS font symbols
+) (/usr/local/texlive/2015/texmf-dist/tex/latex/enumitem/enumitem.sty
+Package: enumitem 2011/09/28 v3.5.2 Customized lists
+\enitkv@toks@=\toks19
+\labelindent=\skip46
+\enit@outerparindent=\dimen112
+\enit@toks=\toks20
+\enit@inbox=\box28
+\enitdp@description=\count99
 ) (./sheet1.aux)
 \openout1 = `sheet1.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 8.
-LaTeX Font Info:    ... okay on input line 8.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 8.
-LaTeX Font Info:    ... okay on input line 8.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 8.
-LaTeX Font Info:    ... okay on input line 8.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 8.
-LaTeX Font Info:    ... okay on input line 8.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 8.
-LaTeX Font Info:    ... okay on input line 8.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 8.
-LaTeX Font Info:    ... okay on input line 8.
-LaTeX Font Info:    Try loading font information for U+msa on input line 9.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 9.
+LaTeX Font Info:    ... okay on input line 9.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 9.
+LaTeX Font Info:    ... okay on input line 9.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 9.
+LaTeX Font Info:    ... okay on input line 9.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 9.
+LaTeX Font Info:    ... okay on input line 9.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 9.
+LaTeX Font Info:    ... okay on input line 9.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 9.
+LaTeX Font Info:    ... okay on input line 9.
+LaTeX Font Info:    Try loading font information for U+msa on input line 10.
  (/usr/local/texlive/2015/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 9.
+LaTeX Font Info:    Try loading font information for U+msb on input line 10.
  (/usr/local/texlive/2015/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-LaTeX Font Info:    Try loading font information for OMS+cmr on input line 13.
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 16.
  (/usr/local/texlive/2015/texmf-dist/tex/latex/base/omscmr.fd
 File: omscmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 13.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 16.
 
-Underfull \hbox (badness 10000) in paragraph at lines 36--55
+Underfull \hbox (badness 10000) in paragraph at lines 40--43
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 40--43
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 44--54
 
  []
 
 [1
 
-{/usr/local/texlive/2015/texmf-var/fonts/map/pdftex/updmap/pdftex.map}] [2] (./sheet1.aux) ) 
+{/usr/local/texlive/2015/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
+Underfull \hbox (badness 10000) in paragraph at lines 54--59
+
+ []
+
+
+Overfull \hbox (20.72183pt too wide) in paragraph at lines 70--74
+[]\OT1/cmr/m/n/10 SELECT e1."EmployeeId", e1."LastName", e1."FirstName", e1."Phone",
+ []
+
+
+Overfull \hbox (34.30403pt too wide) in paragraph at lines 70--74
+\OT1/cmr/m/n/10 e1."Email" FROM "Em-ployee" e1, "Em-ployee" e2 WHERE e2."EmployeeId"
+ []
+
+
+Overfull \hbox (70.04506pt too wide) in paragraph at lines 74--77
+[]$\OML/cmm/m/it/10 ^^Y[]\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 ^^[[]\OT1/cmr/m/n/10 ([] \OML/cmm/m/it/10 .[]/[]
+ []
+
+
+Overfull \hbox (16.49843pt too wide) in paragraph at lines 81--90
+\OT1/cmr/m/n/10 (SE-LECT DIS-TINCT i."InvoiceId" iid, i."CustomerId" cid, al."ArtistId"
+ []
+
+
+Overfull \hbox (10.66505pt too wide) in paragraph at lines 81--90
+\OT1/cmr/m/n/10 WHERE i."InvoiceId" = il."InvoiceId" AND t."TrackId" = il."TrackId"
+ []
+
+
+Overfull \hbox (0.88625pt too wide) in paragraph at lines 81--90
+\OT1/cmr/m/n/10 AND al."AlbumId" = t."AlbumId" OR-DER BY i."InvoiceId") temp1
+ []
+
+
+Overfull \hbox (56.74464pt too wide) in paragraph at lines 90--91
+\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 ^^[[]\OT1/cmr/m/n/10 (([](\OML/cmm/m/it/10 ^^Y[]\OT1/cmr/m/n/10 (((([] \OML/cmm/m/it/10 .[]/
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 95--99
+
+ []
+
+[2]
+Overfull \hbox (41.15529pt too wide) in paragraph at lines 99--100
+[]$\OT1/cmr/m/n/10 ([] \OML/cmm/m/it/10 sum\OT1/cmr/m/n/10 ([])\OML/cmm/m/it/10 ; sum\OT1/cmr/m/n/10 ([])(\OML/cmm/m/it/10 ^^Y[]\OT1/cmr/m/n/10 (((\OML/cmm/m/it/10 ^^[[]\OT1/cmr/m/n/10 ([]) \OML/cmm/m/it/10 .[]/
+ []
+
+
+Overfull \hbox (1.83067pt too wide) in paragraph at lines 104--108
+[]\OT1/cmr/m/n/10 SELECT p."Name" FROM "Playlist" p WHERE p."PlaylistId" NOT
+ []
+
+
+Overfull \hbox (5.1929pt too wide) in paragraph at lines 104--108
+\OT1/cmr/m/n/10 'Black Sab-bath' OR ar."Name" = 'Chico Buar-que') AND al."ArtistId"
+ []
+
+
+Overfull \hbox (6.30403pt too wide) in paragraph at lines 104--108
+\OT1/cmr/m/n/10 = ar."ArtistId" AND t."AlbumId" = al."AlbumId" AND pt."TrackId"
+ []
+
+
+Overfull \hbox (90.23032pt too wide) in paragraph at lines 108--109
+[]$\OML/cmm/m/it/10 ^^Y[][]\OT1/cmr/m/n/10 ) \OMS/cmsy/m/n/10 ^^@ \OML/cmm/m/it/10 ^^Y[]\OT1/cmr/m/n/10 ) \OML/cmm/m/it/10 .[]/
+ []
+
+[3] (./sheet1.aux) ) 
 Here is how much of TeX's memory you used:
- 1142 strings out of 493089
- 12886 string characters out of 6134842
- 68696 words of memory out of 5000000
- 4662 multiletter control sequences out of 15000+600000
- 10888 words of font info for 43 fonts, out of 8000000 for 9000
+ 1437 strings out of 493089
+ 17815 string characters out of 6134842
+ 75448 words of memory out of 5000000
+ 4949 multiletter control sequences out of 15000+600000
+ 12161 words of font info for 47 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 27i,6n,24p,202b,197s stack positions out of 5000i,500n,10000p,200000b,80000s
-</usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb>
-Output written on sheet1.pdf (2 pages, 62516 bytes).
+ 27i,8n,24p,344b,362s stack positions out of 5000i,500n,10000p,200000b,80000s
+</usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmr5.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy5.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public
+/amsfonts/cm/cmsy7.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb>
+Output written on sheet1.pdf (3 pages, 153194 bytes).
 PDF statistics:
- 31 PDF objects out of 1000 (max. 8388607)
- 21 compressed objects within 1 object stream
+ 70 PDF objects out of 1000 (max. 8388607)
+ 50 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  1 words of extra memory for PDF output out of 10000 (max. 10000000)
 

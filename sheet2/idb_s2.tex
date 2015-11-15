@@ -1,0 +1,128 @@
+\documentclass[10pt]{article}
+\usepackage{a4wide}
+
+\usepackage{amsmath, amsfonts, amssymb, mathtools}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{color}
+\usepackage{pgfplotstable}
+\usepackage{array}
+\usepackage{graphicx}
+\graphicspath{ {pictures/} }
+\usepackage{enumitem}
+
+\title{Implementation of Databases Exercise 2}
+\author{Ilya Kulikov 351063, Alina Shigabutdinova 351017, Oleg Chernikov 351016}
+
+\begin{document}
+  \maketitle
+  \section*{Exercise 2.1}
+  	Notation: d = drinker, ba = bar, be = beer.
+  \begin{enumerate}[label=\arabic*.]
+      \item
+      \begin{align*}
+        \{<l.d> | l \in \text{likes}: \{\exists s \in \text{serves}(s.be = l.be \wedge \{ \exists f \in \text{frequents}(f.ba = s.ba \wedge f.d = l.d)\})\}\}
+      \end{align*}
+      \item
+      \begin{align*}
+        &\{<f.d> | f \in \text{frequents} : \\
+        &\{\exists f1 \in \text{frequents} (\{\exists l \in \text{likes} (l.be = \text{'Bitburger'} \wedge l.d = f1.d)\} \wedge f1 \neq f \wedge f1.ba = f.ba)\}\}
+      \end{align*}
+      \item
+      \begin{align*}
+        \{<f.d> | f: \text{frequents} : \{\neg \exists s \in \text{serves} (s.ba = f.ba \wedge \{\exists l \in \text{likes} (s.be = l.be \wedge l.d = f.d)\})\}\}
+      \end{align*}
+  \end{enumerate}
+
+  \section*{Exercise 2.2}
+  \begin{enumerate}[label=\arabic*.]
+    \item
+		Relational Algebra is used to internally represent queries and query evaluation
+    plans because of several reasons: first of all, we can represent complicated queries
+    by composing relational algebra operators with each other under some rules. Secondly,
+    Relational Algebra is closed algebra under the finite relation domain, so we have
+    definite result always. Finally, because of Codd's theorem, each RA expression
+    could be represented using Relational calculus.
+    \item
+		A query language is relational complete, iff one can use this language to describe
+    any query from Relational Algebra or even more. SQL is relational complete, as
+    \textit{SELECT} corresponds to \textit{Projection}, \textit{WHERE} to \textit{Selection}
+    and \textit{FROM} can perform \textit{Join} or \textit{Cartesian Product}. \textit{Rename}
+    operator can also be used in SQL with key word \textit{AS}.
+    \item
+    The intersection RA operator returns the same rows from two relations with equivalent
+    schemas. From the set theory we know, that intersection could be defined using
+    difference (but in this case we lose commutative property of original intersection,
+    so we are not sure about omittability):
+    \begin{align}
+      R \bowtie S = R - (R - S)
+    \end{align}
+    \item
+  		The TRC as the name suggests operates with tuples, while DRC uses attributes and values.
+  \end{enumerate}
+
+  \section*{Exercise 2.3}
+   \begin{enumerate}[label=\arabic*.]
+      \item
+      	For the first pass we produce:
+        \begin{align}
+          n = \frac{N}{B} = \frac{25000}{8} = 3125
+        \end{align}
+      \item
+        The formula is $2*N*\lceil 1+log_{B-1} \lceil N/B \rceil \rceil$, where
+        $\lceil 1+log_{B-1} \lceil N/B \rceil \rceil$ is corresponding to the number
+        of passes. With $N = 25000$ and $B = 8$ we get $6$ as an answer.
+      \item
+      	The number of passes is $\lceil 1+log_{B-1} \lceil N/B \rceil \rceil = 2$,
+        then $N/B = B-1$. This boils down to a quadratic equation, where one of the
+        roots is negative and the other one is $B = 1+\sqrt{1+4N}$. In case $N = 25000$
+        and after ceiling we get $B = 318$
+      \item
+        Two-way merge sort requires $1 + \lceil log_2(N) \rceil$ passes, therefore
+        the answer is 16. For runs we assume that we have 3 pages from the first pass
+        for simple calculations:
+        \begin{align}
+          n = \lceil \frac{N}{B} \rceil = \lceil \frac{25000}{3} \rceil = 8334
+        \end{align}
+  \end{enumerate}
+
+  \section*{Exercise 2.4}
+   \begin{enumerate}[label=\arabic*.]
+      \item
+
+      \item
+
+      \item
+
+      \item
+
+  \end{enumerate}
+
+
+  \section*{Exercise 2.5}
+   \begin{enumerate}[label=\arabic*.]
+      \item
+      	If each node is 70\% full, there are 14 pointers at each node. Then, $H = \lceil \log_{14}(50000) \rceil = 5$.
+      \item
+      	\begin{enumerate}[label=\alph*.]
+          \item
+			      \begin{align}
+			        C = D*(1+3) = 4
+			      \end{align}
+          \item
+            \begin{align}
+              C = 50000 / 20 = 2500
+            \end{align}
+          \item
+            \begin{align}
+              C = 4 + 2 = 6
+            \end{align}
+          \item
+          \begin{align}
+            C = 50000 * 0.3 + 5 = 15005
+          \end{align}
+        \end{enumerate}
+
+  \end{enumerate}
+
+\end{document}
