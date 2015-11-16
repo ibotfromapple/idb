@@ -20,18 +20,57 @@
   	Notation: d = drinker, ba = bar, be = beer.
   \begin{enumerate}[label=\arabic*.]
       \item
-      \begin{align*}
-        \{<l.d> | l \in \text{likes}: \{\exists s \in \text{serves}(s.be = l.be \wedge \{ \exists f \in \text{frequents}(f.ba = s.ba \wedge f.d = l.d)\})\}\}
-      \end{align*}
+      TRC:
+      \begin{equation*}
+      \begin{split}
+        \{l.d \mid l \in \text{likes} \wedge \exists s \in \text{serves}\ (s.be = l.be \wedge \exists f \in \text{frequents}\ (f.ba = s.ba \wedge f.d = l.d))\}
+      \end{split}
+      \end{equation*}
+      DRC:
+      \begin{equation*}
+      \begin{split}
+      	\{drinker \mid \exists bar, beer \\
+        &\quad (drinker, bar) \in \text{frequents}\ \wedge\\
+        &\quad (bar, beer) \in \text{serves}\ \wedge\\
+		&\quad (drinker, beer) \in \text{likes}\ \}
+      \end{split}
+      \end{equation*}
+      
       \item
-      \begin{align*}
-        &\{<f.d> | f \in \text{frequents} : \\
-        &\{\exists f1 \in \text{frequents} (\{\exists l \in \text{likes} (l.be = \text{'Bitburger'} \wedge l.d = f1.d)\} \wedge f1 \neq f \wedge f1.ba = f.ba)\}\}
-      \end{align*}
+      TRC:
+      \begin{equation*}
+      \begin{split}
+        &\{f.d \mid f \in \text{frequents} \wedge \exists f' \in \text{frequents}\ \wedge \exists l \in \text{likes}\ \wedge \\
+        &\quad l.be = \text{'Bitburger'} \wedge l.d = f'.d \wedge f'.d \neq f.d \wedge f'.ba = f.ba\}
+      \end{split}
+      \end{equation*}
+      DRC:
+      \begin{equation*}
+      \begin{split}
+      	\{drinker \mid \exists d',bar \\
+        &\quad (drinker, bar) \in \text{frequents}\ \wedge\\
+        &\quad (d', bar) \in \text{frequents}\ \wedge\\
+		&\quad (d', \text{'Bitburger'}) \in \text{likes}\ \}
+      \end{split}
+      \end{equation*}
+      
       \item
-      \begin{align*}
-        \{<f.d> | f: \text{frequents} : \{\neg \exists s \in \text{serves} (s.ba = f.ba \wedge \{\exists l \in \text{likes} (s.be = l.be \wedge l.d = f.d)\})\}\}
-      \end{align*}
+      TRC:
+      \begin{equation*}
+      \begin{split}
+        \{f.d \mid f \in \text{frequents} \wedge \forall s \in \text{serves} (s.ba = f.ba \wedge \forall l \in \text{likes} \wedge l.d = f.d \wedge s.be \neq l.be))\}
+      \end{split}
+      \end{equation*}
+      DRC:
+      \begin{equation*}
+      \begin{split}
+      	\{drinker \mid \exists bar\ \forall beer \\
+        &\quad (drinker, bar) \in \text{frequents}\ \wedge\\
+        &\quad (bar, beer) \in \text{serves}\ \wedge\\
+		&\quad (drinker, beer) \not\in \text{likes}\ \}
+      \end{split}
+      \end{equation*}
+      
   \end{enumerate}
 
   \section*{Exercise 2.2}
