@@ -94,7 +94,7 @@
     difference (but in this case we lose commutative property of original intersection,
     so we are not sure about omittability):
     \begin{align}
-      R \bowtie S = R - (R - S)
+      R \bowtie S = R \setminus (R \setminus S)
     \end{align}
     \item
   		The TRC as the name suggests operates with tuples, while DRC uses attributes and values.
@@ -103,10 +103,17 @@
   \section*{Exercise 2.3}
    \begin{enumerate}[label=\arabic*.]
       \item
-      	For the first pass we produce:
+      	For the pass 0 we produce:
         \begin{align}
           n = \frac{N}{B} = \frac{25000}{8} = 3125
         \end{align}
+        Pass 1: 447 runs\\
+        Pass 2: 75 runs\\
+        Pass 3: 15 runs\\
+        Pass 4: 4 runs\\
+        Pass 5: 2 runs\\
+        Pass 6: 1 run\\[3pt]
+        So overall we produce 3669 runs
       \item
         The formula is $2*N*\lceil 1+log_{B-1} \lceil N/B \rceil \rceil$, where
         $\lceil 1+log_{B-1} \lceil N/B \rceil \rceil$ is corresponding to the number
@@ -114,15 +121,12 @@
       \item
       	The number of passes is $\lceil 1+log_{B-1} \lceil N/B \rceil \rceil = 2$,
         then $N/B = B-1$. This boils down to a quadratic equation, where one of the
-        roots is negative and the other one is $B = 1+\sqrt{1+4N}$. In case $N = 25000$
-        and after ceiling we get $B = 318$
+        roots is negative and the other one is $B = \frac{1}{2}(1+\sqrt{1+4N})$. In case $N = 25000$
+        and after ceiling we get $B = 159$
       \item
         Two-way merge sort requires $1 + \lceil log_2(N) \rceil$ passes, therefore
-        the answer is 16. For runs we assume that we have 3 pages from the first pass
-        for simple calculations:
-        \begin{align}
-          n = \lceil \frac{N}{B} \rceil = \lceil \frac{25000}{3} \rceil = 8334
-        \end{align}
+        the answer is 16. \\
+        In the first pass we sort each page, so we require 25000 runs. For consequent passes we require 12500, 6250, 3125, ... runs. Overall, to sort the data entirely we have to use 50006 runs.
   \end{enumerate}
 
   \section*{Exercise 2.4}
