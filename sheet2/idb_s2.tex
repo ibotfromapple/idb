@@ -93,9 +93,9 @@
     schemas. From the set theory we know, that intersection could be defined using
     difference (but in this case we lose commutative property of original intersection,
     so we are not sure about omittability):
-    \begin{align}
+    \begin{align*}
       R \bowtie S = R \setminus (R \setminus S)
-    \end{align}
+    \end{align*}
     \item
   		The TRC as the name suggests operates with tuples, while DRC uses attributes and values.
   \end{enumerate}
@@ -103,17 +103,13 @@
   \section*{Exercise 2.3}
    \begin{enumerate}[label=\arabic*.]
       \item
-      	For the pass 0 we produce:
-        \begin{align}
-          n = \frac{N}{B} = \frac{25000}{8} = 3125
-        \end{align}
+      	For the pass 0 we produce $n = \frac{N}{B} = \frac{25000}{8} = 3125$ runs\\
         Pass 1: 447 runs\\
-        Pass 2: 75 runs\\
-        Pass 3: 15 runs\\
-        Pass 4: 4 runs\\
-        Pass 5: 2 runs\\
-        Pass 6: 1 run\\[3pt]
-        So overall we produce 3669 runs
+        Pass 2: 64 runs\\
+        Pass 3: 10 runs\\
+        Pass 4: 2 runs\\
+        Pass 5: 1 run\\[3pt]
+        So overall we produce 3649 runs
       \item
         The formula is $2*N*\lceil 1+log_{B-1} \lceil N/B \rceil \rceil$, where
         $\lceil 1+log_{B-1} \lceil N/B \rceil \rceil$ is corresponding to the number
@@ -130,14 +126,17 @@
   \end{enumerate}
 
   \section*{Exercise 2.4}
+  For all records we need 36 * 7500 = 270000 bytes. Each page can contain only 1024 - 64 = 960 bytes of data. So we need 282 pages to store all data + control information.
    \begin{enumerate}[label=\arabic*.]
       \item
-
+      	In initial pass we create $\lceil \frac{282}{4} \rceil = 71$ subfile, where 70 subfiles have 4 pages each (4096 bytes), and the last subfile has only 2 pages (1024 + 304 = 1328 bytes).
       \item
-
+      	Including the first pass we need 5 passes overall.
       \item
-
+      	Costs = (2 * 282) * 5 = 2820 I/O operations on pages
       \item
+      	With only 4 buffer pages we can sort a file of 12 pages at most (12 KBytes).\\
+      	With 42 buffer pages we can sort a file with up to 1722 pages (1722 KBytes) 
 
   \end{enumerate}
 
