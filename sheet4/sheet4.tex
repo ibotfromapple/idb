@@ -56,4 +56,27 @@
     \text{IO} = 1000 + 1000 + |R \bowtie S| = 12000;
   \end{align*}
   The best use case for $x \geq 11$.
+  
+  \section*{Exercise 4.2}
+  \begin{enumerate}[label=\arabic*.]
+    \item
+    	\begin{enumerate}[label=\arabic*.]
+          \item
+            $parent(X,Y) \leftarrow child(Y,X)$
+          \item
+          	$married(X,Y) \leftarrow parent(X,Z),parent(Y,Z)$
+          \item
+          	$sister(X,Y) \leftarrow parent(Z,X),parent(Z,Y),\neg male(X)$
+          \item
+          	Since predicate "married" is defined as being the parents of the same child, we may use it to exclude the possibility of having another parent by constraint, that he/she is not married\\
+            $halfbrother(X,Y) \leftarrow parent(Z,X),parent(Z,Y),\neg married(Z, Z'), male(X)$
+  		\end{enumerate}
+    \item
+    	
+  \end{enumerate}
+  
+  \section*{Exercise 4.3}
+   \begin{enumerate}[label=\arabic*.] 
+      \item 
+  \end{enumerate}
 \end{document}
