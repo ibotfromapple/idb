@@ -1,0 +1,159 @@
+\documentclass[10pt]{article}
+\usepackage{a4wide}
+
+\usepackage{amsmath, amsfonts, amssymb, mathtools}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{color}
+\usepackage{pgfplotstable}
+\usepackage{array}
+\usepackage{graphicx}
+\graphicspath{ {pictures/} }
+\usepackage{enumitem}
+
+\title{Implementation of Databases Exercise 2}
+\author{Ilya Kulikov 351063, Alina Shigabutdinova 351017, Oleg Chernikov 351016}
+
+\begin{document}
+  \maketitle
+  \section*{Exercise 2.1}
+  	Notation: d = drinker, ba = bar, be = beer.
+  \begin{enumerate}[label=\arabic*.]
+      \item
+      TRC:
+      \begin{equation*}
+      \begin{split}
+        \{l.d \mid l \in \text{likes} \wedge \exists s \in \text{serves}\ (s.be = l.be \wedge \exists f \in \text{frequents}\ (f.ba = s.ba \wedge f.d = l.d))\}
+      \end{split}
+      \end{equation*}
+      DRC:
+      \begin{equation*}
+      \begin{split}
+      	\{drinker \mid \exists bar, beer \\
+        &\quad (drinker, bar) \in \text{frequents}\ \wedge\\
+        &\quad (bar, beer) \in \text{serves}\ \wedge\\
+		&\quad (drinker, beer) \in \text{likes}\ \}
+      \end{split}
+      \end{equation*}
+
+      \item
+      Here we assume that we select different man from that, who already likes Bitburger.
+      TRC:
+      \begin{equation*}
+      \begin{split}
+        &\{f.d \mid f \in \text{frequents} \wedge \exists f' \in \text{frequents}\ \wedge \exists l \in \text{likes}\ \wedge \\
+        &\quad l.be = \text{'Bitburger'} \wedge l.d = f'.d \wedge f'.d \neq f.d \wedge f'.ba = f.ba\}
+      \end{split}
+      \end{equation*}
+      DRC:
+      \begin{equation*}
+      \begin{split}
+      	\{drinker \mid \exists d',bar \\
+        &\quad (drinker, bar) \in \text{frequents}\ \wedge\\
+        &\quad (d', bar) \in \text{frequents}\ \wedge\\
+		&\quad (d', \text{'Bitburger'}) \in \text{likes}\ \}
+      \end{split}
+      \end{equation*}
+
+      \item
+      TRC:
+      \begin{equation*}
+      \begin{split}
+        \{f.d \mid f \in \text{frequents} \wedge \forall s \in \text{serves} (s.ba = f.ba \wedge \forall l \in \text{likes} \wedge l.d = f.d \wedge s.be \neq l.be))\}
+      \end{split}
+      \end{equation*}
+      DRC:
+      \begin{equation*}
+      \begin{split}
+      	\{drinker \mid \exists bar\ \forall beer \\
+        &\quad (drinker, bar) \in \text{frequents}\ \wedge\\
+        &\quad (bar, beer) \in \text{serves}\ \wedge\\
+		&\quad (drinker, beer) \not\in \text{likes}\ \}
+      \end{split}
+      \end{equation*}
+
+  \end{enumerate}
+
+  \section*{Exercise 2.2}
+  \begin{enumerate}[label=\arabic*.]
+    \item
+		Relational Algebra is used to internally represent queries and query evaluation
+    plans because of several reasons: first of all, we can represent complicated queries
+    by composing relational algebra operators with each other under some rules. Secondly,
+    Relational Algebra is closed algebra under the finite relation domain, so we have
+    definite result always. Finally, because of Codd's theorem, each RA expression
+    could be represented using Relational calculus.
+    \item
+		A query language is relational complete, iff one can use this language to describe
+    any query from Relational Algebra or even more. SQL is relational complete, as
+    \textit{SELECT} corresponds to \textit{Projection}, \textit{WHERE} to \textit{Selection}
+    and \textit{FROM} can perform \textit{Join} or \textit{Cartesian Product}. \textit{Rename}
+    operator can also be used in SQL with key word \textit{AS}.
+    \item
+    The intersection RA operator returns the same rows from two relations with equivalent
+    schemas. From the set theory we know, that intersection could be defined using
+    difference (but in this case we lose commutative property of original intersection,
+    so we are not sure about omittability):
+    \begin{align*}
+      R \bowtie S = R \setminus (R \setminus S)
+    \end{align*}
+    \item
+  		The TRC as the name suggests operates with tuples, while DRC uses attributes and values.
+  \end{enumerate}
+
+  \section*{Exercise 2.3}
+   \begin{enumerate}[label=\arabic*.]
+      \item
+      	For the pass 0 we produce $n = \frac{N}{B} = \frac{25000}{8} = 3125$ runs\\
+        Pass 1: 447 runs\\
+        Pass 2: 64 runs\\
+        Pass 3: 10 runs\\
+        Pass 4: 2 runs\\
+        Pass 5: 1 run\\[3pt]
+        So overall we produce 3649 runs
+      \item
+        The formula is $2*N*\lceil 1+log_{B-1} \lceil N/B \rceil \rceil$, where
+        $\lceil 1+log_{B-1} \lceil N/B \rceil \rceil$ is corresponding to the number
+        of passes. With $N = 25000$ and $B = 8$ we get $6$ as an answer.
+      \item
+      	The number of passes is $\lceil 1+log_{B-1} \lceil N/B \rceil \rceil = 2$,
+        then $N/B = B-1$. This boils down to a quadratic equation, where one of the
+        roots is negative and the other one is $B = \frac{1}{2}(1+\sqrt{1+4N})$. In case $N = 25000$
+        and after ceiling we get $B = 159$
+      \item
+        Two-way merge sort requires $1 + \lceil log_2(N) \rceil$ passes, therefore
+        the answer is 16. \\
+        In the first pass we sort each page, so we require 25000 runs. For consequent passes we require 12500, 6250, 3125, ... runs. Overall, to sort the data entirely we have to use 50006 runs.
+  \end{enumerate}
+
+  \section*{Exercise 2.4}
+  For all records we need 36 * 7500 = 270000 bytes. Each page can contain only 1024 - 64 = 960 bytes of data. So each page can store 26 records, and we need 289 pages to store all data + control information (we assume that the records cannot be splitted between files, as it was not stated otherwise).
+   \begin{enumerate}[label=\arabic*.]
+      \item
+      	In initial pass we create $\lceil \frac{289}{4} \rceil = 73$ subfiles, where 72 subfiles have 4 pages each (104 records, 4096 bytes), and the last subfile has only 1 page (12 records, 1024 bytes).
+      \item
+      	Including the first pass we need 5 passes overall.
+      \item
+      	Costs = (2 * 289) * 5 = 2890 I/O operations on pages
+      \item
+      	With only 4 buffer pages we can sort a file of 12 pages at most (12 KBytes).\\
+      	With 42 buffer pages we can sort a file with up to 1722 pages (1722 KBytes)
+
+  \end{enumerate}
+
+
+  \section*{Exercise 2.5}
+   \begin{enumerate}[label=\arabic*.]
+      \item
+      	If each node is 70\% full, there are 14 pointers at each node. Then, $H = \lceil \log_{14}(50000) \rceil = 5$.
+      \item
+      	\begin{enumerate}[label=\alph*.]
+          \item $C = D*(1+3) = 4$
+          \item $C = 50000 / 20 = 2500$
+          \item $C = 4 + 2 = 6$
+          \item $C = 50000 * 0.3 + 5 = 15005$
+        \end{enumerate}
+
+  \end{enumerate}
+
+\end{document}
